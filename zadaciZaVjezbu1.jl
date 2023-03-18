@@ -14,7 +14,7 @@ xy
 x * y
 # umnožak varijabli x i y
 
-# 4. zadatak
+# 4. zadatak - računanje volumena kocke/sfere ovisno o zadanom ulazu
 function volume(a, tijelo)
     if tijelo == "kocka"
         V = a^3
@@ -31,7 +31,7 @@ volume(15, "kocka")
 volume(10, "sfera")
 volume(10, "konus")
 
-# 5. zadatak
+# 5. zadatak - računanje apsolutne vrijednost broja
 function apsolutna(a)
     if a < 0
         return -a
@@ -43,14 +43,14 @@ end
 apsolutna(10)
 apsolutna(-10)
 
-# 6. zadatak
+# 6. zadatak - udaljenost dviju točaka
 function udaljenost(x1, y1, x2, y2)
     return sqrt((x2 - x1)^2 + (y2 - y1)^2)
 end
 
 udaljenost(2, 3, 7, 8)
 
-# 7. zadatak
+# 7. zadatak - ispis prirodnih brojeva manjih od 30 koji nisu djeljivi s 3
 for i = 1:30
     if rem(i, 3) != 0
         print(i, " ")
@@ -58,5 +58,5 @@ for i = 1:30
 end
 
 
-# 8. zadatak
+# 8. zadatak - broj slova a u rečenici
 count("a", "Volim studirati u Zagrebu!")
