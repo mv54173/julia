@@ -54,6 +54,10 @@ t_oporavka = 10 # koliko dana je osoba bolesna
 N = S + I + R # ukupan broj ljudi
 k = 12 # broj kontakata na dan
 b = 0.05
+ni = 0.009
+mi = ni
+delta = 1/30
+kapa = ni*323085/N
 beta = (k * b) / N # koeficijent zaraze
 gamma = 1 / t_oporavka # koeficijent oporavka
 tspan = (0.0, 25 * 7) # vrijeme gledamo u danima, g
@@ -73,15 +77,13 @@ problem = ODEProblem(SIS, u0, tspan, p)
 =#
 #=
 #SIRS
-delta = 1/30
 p = (beta, gamma, delta)
 u0 = [S; I; R] # podešavanje početnih uvjeta
 problem = ODEProblem(SIRS, u0, tspan, p)
 =#
+
 #=
 #SIR + demografija
-mi = 0.0129
-ni = mi
 p = (beta, gamma, mi, ni)
 u0 = [S; I; R; N] # podešavanje početnih uvjeta
 problem = ODEProblem(SIR_demografija, u0, tspan, p)
@@ -89,9 +91,6 @@ problem = ODEProblem(SIR_demografija, u0, tspan, p)
 
 #=
 #SIR + demografija + cijepljenje
-mi = 0.0129
-ni = mi
-kapa = ni*323085/N
 p = (beta, gamma, mi, ni, kapa)
 u0 = [S; I; R; N] # podešavanje početnih uvjeta
 problem = ODEProblem(SIR_demo_vakc, u0, tspan, p)
@@ -106,9 +105,6 @@ plot!(sol, vars=(0, 3), title="oboljeli od gripe", label="oporavljeni", legend=:
 
 
 #SEIR
-ni = 0.009
-mi = ni
-kapa = ni * 323085 / N
 nu = 1
 E = 0
 p = (beta, gamma, mi, ni, kapa, nu)

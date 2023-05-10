@@ -31,8 +31,8 @@ tspan = (0.0, 300)
 problem = ODEProblem(Rosenzweig_MacArthur, u0, tspan, p)
 sol = solve(problem)
 ## virtualizacija
-using Plots;
-gr();
+using Plots
+gr()
 plot(sol, vars=(0, 1), title="grabežljivac plijen RM model", label="plijen", legend=:topright)
 plot!(sol, vars=(0, 2), label="grabežljivac", legend=:topright)
 plot!(xlab="vrijeme", ylab="populacija")

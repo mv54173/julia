@@ -71,16 +71,9 @@ iznosNaboja = rand(Uniform(0, maksNaboj))
 # definicija mreže
 xG, yG = mreza(koordinateNaboja, N)
 
-
-
-
-
 #izračun vektora polja
 E, Ex, Ey = elektricnoPolje(koordinateNaboja, iznosNaboja, xG, yG, N, n, m)
 
-E
-Ex
-Ey
 
 #vizualizacija
 using Plots
